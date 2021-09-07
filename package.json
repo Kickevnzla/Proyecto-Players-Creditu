@@ -1,0 +1,30 @@
+{
+  "name": "credituinterviewapp",
+  "version": "1.0.0",
+  "description": "Aplicacion web para entrevista Creditu",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "test": "jest",
+    "webpack": "webpack --mode development --watch"
+  },
+  "author": "Jesus Paredes",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.4",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "babel-loader": "^8.2.2",
+    "nodemon": "^2.0.12",
+    "vue": "^2.6.14",
+    "vue-loader": "^15.9.8",
+    "vue-template-compiler": "^2.6.14",
+    "webpack": "^5.51.2",
+    "webpack-cli": "^4.8.0"
+  }
+}
