@@ -7,12 +7,6 @@ export default {
         },
         totalPages() {
             return Math.ceil(this.players.length / this.perPage);
-        },
-        showPreviousLink() {
-            return this.currentPage == 0 ? false : true;
-        },
-        showNextLink() {
-            return this.currentPage == (this.totalPages() - 1) ? false : true;
         }
     }
 }

@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import App from './app.vue';
 
+Vue.component('pagination', require('laravel-vue-pagination'));
+
 Vue.config.productionTip = false;
 
 import axios from 'axios';

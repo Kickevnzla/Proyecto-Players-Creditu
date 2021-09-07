@@ -3,6 +3,8 @@ const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 
+const { schema } = require('./models/Players');
+
 const app = express();
 mongoose.connect(process.env.DATABASE_URI).then(db => console.log('DB is connected')).catch(err => console.error());
 
