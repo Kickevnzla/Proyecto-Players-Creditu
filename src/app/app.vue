@@ -20,15 +20,24 @@
         <!-- Player cards -->
         <div class="container mt-5">
             <div class="playersList row row-cols-1 row-cols-sm-2 row-cols-lg-4 justify-content-center">
-
                 <!-- Player -->
-                <player-card class="col p-1 text-dark" v-for="player in players" 
+                <player-card class="col p-1 text-dark" 
+                v-for="player in visiblePlayers" 
                 v-bind:player="player"
                 v-bind:visiblePlayers="visiblePlayers" 
                 v-bind:currentPage="currentPage"
                 :key="player.id"></player-card>
             </div>
         </div>
+
+        <!-- Pagination -->
+        <pagination
+        v-bind:players="players"
+        v-on:page:update="updatePage"
+        v-bind:currentPage="currentPage"
+        v-bind:perPage="perPage">
+
+        </pagination>
     </div>
 </template>
 
