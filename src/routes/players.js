@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
         if (id == null || id.length == 0 && nickname == null || nickname.length == 0 && status == null || status.length == 0) {
             players = await Player.paginate({}, options);
         } else {
-            players = await Player.paginate({ $or: [{ id: id }, { nickname: {$in: [/ + nickname + /] } }, {status: {$in: [/status/] } }] }, options);
+            players = await Player.paginate({ $or: [{ id: id }, { nickname: new RegExp(nickname) }, {status: new RegExp(status) }] }, options);
         }
         res.json(players);
     } catch (err) {
