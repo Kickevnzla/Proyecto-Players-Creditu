@@ -13,9 +13,12 @@ ul {
     margin: 0;
 }
 
+/* PLAYER CARDS */
+
 .card-img {
-    background-color: white;
     border-radius: 50%;
+    max-width: 207px;
+    max-height: 220px;
 }
 
 .player {
@@ -42,6 +45,8 @@ ul {
 img {
     display: block;
     max-width: 75%;
+    width: 100%;
+    height: auto;
 }
 
 /* PAGINATION */

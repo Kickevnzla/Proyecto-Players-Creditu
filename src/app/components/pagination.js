@@ -1,12 +1,23 @@
 export default {
     name: 'pagination',
-    props: ['players', 'currentPage', 'perPage'],
+    props: ['players', 'page', 'pages'],
     methods: {
-        updatePage(pageNumber) {
-            this.$emit('page:update', pageNumber);
+        changePage(newPage) {
+            let answer;
+
+            if (newPage <= 0 || newPage > this.pages) {
+                answer = this.page;
+            } else {
+                answer = newPage;
+            }
+
+            this.updatePage(answer);
         },
-        totalPages() {
-            return Math.ceil(this.players.length / this.perPage);
+        updatePage(answer) {
+            
+            this.$emit('pageChanged', answer);
+
+            this.$root.$refs.app.getPlayers();
         }
     }
 }

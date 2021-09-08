@@ -11,32 +11,41 @@ export default {
         return {
             players: [],
             searchedText: '',
-            currentPage: 0,
-            perPage: 16,
-            visiblePlayers: []
+            page: 1,
+            pages: 1
         }
     },
     created() {
+        this.$root.$refs.app = this;
         this.getPlayers();
     },
     methods: {
         async getPlayers() {
-            //fetch('/players').then(res => res.json()).then(data => (this.players = data));
-            const res = await this.axios.get('/players');
-            console.log(res);
-            this.players = res.data;
-            this.updateVisiblePlayers();
+            const params = {
+                page: this.page
+            };
+            let res = await this.axios.get('/players', { params })
+            .then(res => {
+                this.players = res.data.docs;
+                this.pages = res.data.totalPages;
+            })
+            .catch(err => {
+                console.log(err);
+            });
         },
-        updateVisiblePlayers() {
-            this.visiblePlayers = this.players.slice(this.currentPage * this.perPage, (this.currentPage * this.perPage) + this.perPage);
-
-            if (this.visiblePlayers.length == 0 && this.currentPage > 0) {
-                this.updatePage(this.currentPage -1);
-            }
-        },
-        updatePage(pageNumber) {
-            this.currentPage = pageNumber;
-            this.updateVisiblePlayers();
+        updatePage(newPage) {
+            this.page = newPage;
         }
+    },
+    computed: {
+        // filteredPlayers: function() {
+        //     return this.players.filter((player) => {
+        //         if(player.nickname.toLowerCase().match(this.searchedText.toLowerCase()) ||
+        //             player.id == this.searchedText ||
+        //             player.status.toLowerCase().match(this.searchedText.toLowerCase())){
+        //             return true;
+        //         }
+        //     });
+        // }
     }
 }

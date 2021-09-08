@@ -1,18 +1,13 @@
 <template>
     <div>
-        <nav class="upBar shadow pt-3 pb-3">
+        <nav class="upBar shadow pt-3 pb-3 sticky-top">
             <div class="container">
                 <div class="row justify-content-start">
                     <div class="col-4 col-lg-4 col-md-2">
                         <a class="navbar-brand">PLAYERS</a>
                     </div>
                     <div class="col-8 col-lg-4 col-md-8">
-                        <!-- <form @submit.prevent="getPlayers">
-                            <input class="form-control me-2" type="text" v-model="searchedText" v-on:keyup="getPlayers" name="searchBar" id="searchBar" placeholder="Search..." aria-label="Search">
-                        </form> -->
-                        <form>
-                            <input class="form-control me-2" type="text" name="searchBar" id="searchBar" placeholder="Search..." aria-label="Search">
-                        </form>
+                        <input v-model="searchedText" class="form-control me-2" type="text" name="searchBar" id="searchBar" placeholder="Search..." aria-label="Search" v-on:keydown.enter.prevent/>
                     </div>
                 </div>
             </div>
@@ -21,22 +16,15 @@
         <div class="container mt-5">
             <div class="playersList row row-cols-1 row-cols-sm-2 row-cols-lg-4 justify-content-center">
                 <!-- Player -->
-                <player-card class="col p-1 text-dark" 
-                v-for="player in visiblePlayers" 
+                <player-card class="p-1 text-dark" 
+                v-for="player in players" 
                 v-bind:player="player"
-                v-bind:visiblePlayers="visiblePlayers" 
-                v-bind:currentPage="currentPage"
                 :key="player.id"></player-card>
             </div>
         </div>
 
         <!-- Pagination -->
-        <pagination
-        v-bind:players="players"
-        v-on:page:update="updatePage"
-        v-bind:currentPage="currentPage"
-        v-bind:perPage="perPage">
-
+        <pagination :page="page" @pageChanged="updatePage">
         </pagination>
     </div>
 </template>

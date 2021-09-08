@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
 
+const mongoosePaginate = require('mongoose-paginate-v2');
+
 const { Schema } = mongoose;
 
-const Player = new Schema({
+const playerSchema = new Schema({
     id: Number,
     nickname: String,
     status: String,
@@ -10,4 +12,6 @@ const Player = new Schema({
     avatar: String
 });
 
-module.exports = mongoose.model('Player', Player);
+playerSchema.plugin(mongoosePaginate);
+
+module.exports = mongoose.model('Player', playerSchema);
