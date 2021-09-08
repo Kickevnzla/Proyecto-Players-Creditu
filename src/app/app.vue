@@ -7,7 +7,7 @@
                         <a class="navbar-brand">PLAYERS</a>
                     </div>
                     <div class="col-8 col-lg-4 col-md-8">
-                        <input v-model="searchedText" class="form-control me-2" type="text" name="searchBar" id="searchBar" placeholder="Search..." aria-label="Search" v-on:keydown.enter.prevent/>
+                        <input v-model="searchedText" class="form-control me-2" type="text" name="searchBar" id="searchBar" placeholder="Search..." aria-label="Search" v-on:keydown.enter.prevent="filterPlayers"/>
                     </div>
                 </div>
             </div>
@@ -24,7 +24,7 @@
         </div>
 
         <!-- Pagination -->
-        <pagination :page="page" @pageChanged="updatePage">
+        <pagination :page="page" :pages="pages" @pageChanged="updatePage">
         </pagination>
     </div>
 </template>

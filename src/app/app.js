@@ -22,7 +22,10 @@ export default {
     methods: {
         async getPlayers() {
             const params = {
-                page: this.page
+                page: this.page,
+                id: parseInt(this.searchedText, 10) || 0,
+                nickname: this.searchedText,
+                status: this.searchedText
             };
             let res = await this.axios.get('/players', { params })
             .then(res => {
@@ -35,19 +38,13 @@ export default {
         },
         updatePage(newPage) {
             this.page = newPage;
+        },
+        filterPlayers: function() {
+            this.page = 1;
+            this.getPlayers();
+            console.log(this.searchedText, typeof(this.searchedText));
+
+            return this.players;
         }
     },
-    computed: {
-        // filteredPlayers: function() {
-        //     this.page = 1;
-        //     this.getPlayers();
-        //     return this.players.filter((player) => {
-        //         if(player.nickname.toLowerCase().match(this.searchedText.toLowerCase()) ||
-        //             player.id == this.searchedText ||
-        //             player.status.toLowerCase().match(this.searchedText.toLowerCase())){
-        //             return true;
-        //         }
-        //     });
-        // }
-    }
 }

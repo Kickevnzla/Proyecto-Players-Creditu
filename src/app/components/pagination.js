@@ -10,7 +10,6 @@ export default {
             } else {
                 answer = newPage;
             }
-
             this.updatePage(answer);
         },
         updatePage(answer) {
