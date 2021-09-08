@@ -39,6 +39,8 @@ export default {
     },
     computed: {
         // filteredPlayers: function() {
+        //     this.page = 1;
+        //     this.getPlayers();
         //     return this.players.filter((player) => {
         //         if(player.nickname.toLowerCase().match(this.searchedText.toLowerCase()) ||
         //             player.id == this.searchedText ||
