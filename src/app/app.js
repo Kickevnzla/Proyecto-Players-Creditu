@@ -24,8 +24,8 @@ export default {
             const params = {
                 page: this.page,
                 id: parseInt(this.searchedText, 10) || 0,
-                nickname: this.searchedText,
-                status: this.searchedText
+                nickname: this.searchedText.toLowerCase(),
+                status: this.searchedText.toLowerCase()
             };
             let res = await this.axios.get('/players', { params })
             .then(res => {
