@@ -23,7 +23,7 @@
             </div>
         </div>
         <div class="" v-if="players <= 0">
-            <h4 class="text-center"> No hay coincidendias</h4>
+            <h4 class="text-center"> No hay coincidencias</h4>
         </div>
 
         <!-- Pagination -->
