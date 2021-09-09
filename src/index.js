@@ -6,7 +6,8 @@ const mongoose = require('mongoose');
 const { schema } = require('./models/Players');
 
 const app = express();
-mongoose.connect(process.env.DATABASE_URI).then(db => console.log('DB is connected')).catch(err => console.error());
+const link = mongoose.connect(process.env.DATABASE_URI)
+link.then(db => console.log('DB is connected')).catch(err => console.error());
 
 // Settings
 app.set('port', process.env.PORT || 3000);
