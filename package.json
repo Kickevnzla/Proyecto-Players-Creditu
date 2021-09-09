@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon src/index.js",
     "webpack": "webpack --mode development --watch",
-    "start": "src/index.js"
+    "start": "node src/index.js"
   },
   "author": "Jesus Paredes",
   "license": "ISC",
