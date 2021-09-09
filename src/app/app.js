@@ -42,9 +42,8 @@ export default {
         filterPlayers: function() {
             this.page = 1;
             this.getPlayers();
-            console.log(this.searchedText, typeof(this.searchedText));
 
             return this.players;
         }
-    },
+    }
 }

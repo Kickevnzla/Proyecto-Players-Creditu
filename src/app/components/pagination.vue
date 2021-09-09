@@ -1,5 +1,5 @@
 <template>
-    <div class="d-flex justify-content-center mb-4">
+    <div v-if="pages > 1" class="d-flex justify-content-center mb-4">
         <ul class="pagination p-2 px-3" role="navegation" aria-label="pagination">
             <li 
                 v-if="page != 1"
